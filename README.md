@@ -86,8 +86,9 @@ If you selected virtual network integration, access to Azure OpenAI and Azure Co
 
 ## Run your app using Visual Studio Code
 
-1)Run and Debug `F5` the app or open a new terminal window in the `./app` folder and enter `func start`
-2) Using your favorite REST client, e.g. [RestClient in VS Code](https://marketplace.visualstudio.com/items?itemName=humao.rest-client), PostMan, curl, make a post.  `test.http` has been provided to run this quickly.   
+1) Open a new terminal window in the `./app` folder and enter `func start`
+2) Run F5 from the root of the repo and it should ask to attach to a process. Pick main
+3) Using your favorite REST client, e.g. [RestClient in VS Code](https://marketplace.visualstudio.com/items?itemName=humao.rest-client), PostMan, curl, make a post.  `test.http` has been provided to run this quickly.   
 
 ## Add the Functions endpoint as an MCP Server
 Open up the .vscode/mcp.json and start the local MCP server that points to the running function app
