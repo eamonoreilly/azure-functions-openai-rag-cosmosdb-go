@@ -1,7 +1,0 @@
-{
-    "servers": {
-        "my-mcp-server-3943d3b3": {
-            "url": "http://localhost:7071/runtime/webhooks/mcp/sse"
-        }
-    }
-}

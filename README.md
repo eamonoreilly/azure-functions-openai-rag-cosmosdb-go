@@ -39,7 +39,7 @@ Information about Model Context Protocol tools in Azure Functions is available o
 
 Once you have your Azure subscription, run the following in a new terminal window to create Azure OpenAI, Azure Cosmos DB and other resources needed: You will be asked if you want to enable a virtual network that will lock down your OpenAI and Cosmos DB so they are only available from the deployed function app over private endpoints. To skip virtual network integration, select true. If you select networking, your local IP will be added to the OpenAI and Cosmos DB services so you can debug locally.
 ```bash
-azd init --template https://github.com/eamonoreilly/azure-functions-openai-cosmosdb-mcp-dotnet
+azd init --template https://github.com/eamonoreilly/azure-functions-openai-cosmosdb-mcp-go
 ```
 Make sure to run this before calling azd to provision resources so azd can run scripts required to setup permissions
 
@@ -64,7 +64,7 @@ If you don't run azd provision, you can create an [OpenAI resource](https://port
   "IsEncrypted": false,
   "Values": {
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+    "FUNCTIONS_WORKER_RUNTIME": "custom",
     "AZURE_OPENAI_ENDPOINT": "<paste from above>",
     "CHAT_MODEL_DEPLOYMENT_NAME": "chat",
     "cosmosDBNoSqlEndpoint__Endpoint": "<paste from above>",
@@ -111,7 +111,7 @@ You're prompted to supply these required deployment parameters:
 After publish completes successfully, `azd` provides you with the URL endpoints of your new functions, but without the function key values required to access the endpoints. To learn how to obtain these same endpoints along with the required function keys, see [Invoke the function on Azure](https://learn.microsoft.com/en-us/azure/azure-functions/create-first-function-azure-developer-cli?pivots=programming-language-csharp#invoke-the-function-on-azure) in the companion article [Quickstart: Create and deploy functions to Azure Functions using the Azure Developer CLI](https://learn.microsoft.com/en-us/azure/azure-functions/create-first-function-azure-developer-cli?pivots=programming-language-csharp).
 
 ## Test MCP server in Azure Functions
-Open up the .vscode/mcp.json and start the remote function app. It will ask for the function name and also a key.
+Open up the .vscode/mcp.json and start the remote function app. It will ask for the function app name and also a key.
 The system key can be obtained from the portal (under keys) or the CLI (az functionapp keys list --resource-group <resource_group> --name <function_app_name>)
 
 ## Redeploy your code
