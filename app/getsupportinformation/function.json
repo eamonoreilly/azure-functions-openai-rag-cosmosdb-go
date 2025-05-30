@@ -1,0 +1,23 @@
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "McpToolTrigger",
+      "direction": "in",
+      "name": "Request",
+      "ToolName": "GetSupportInformation",
+      "Description": "Get support information for a specific issue or topic.",
+      "ToolProperties": "[{\"propertyName\": \"searchText\", \"propertyType\": \"string\", \"description\": \"The search text to use for retrieving support incident information\"}]"
+    },
+    {
+      "name": "SemanticSearchInput",
+      "type": "semanticSearch",
+      "direction": "in",
+      "query": "{arguments.searchText}",
+      "SearchConnectionName": "cosmosDBNoSqlEndpoint",
+      "collection": "rag",
+      "embeddingsModel": "%EMBEDDING_MODEL_DEPLOYMENT_NAME%",
+      "chatModel": "%CHAT_MODEL_DEPLOYMENT_NAME%"
+    }
+  ]
+}

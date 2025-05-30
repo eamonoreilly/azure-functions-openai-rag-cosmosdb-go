@@ -1,0 +1,29 @@
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "Request",
+      "methods": [
+        "post",
+        "get"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "name": "SemanticSearchInput",
+      "type": "semanticSearch",
+      "direction": "in",
+      "query": "{question}",
+      "SearchConnectionName": "cosmosDBNoSqlEndpoint",
+      "collection": "rag",
+      "embeddingsModel": "%EMBEDDING_MODEL_DEPLOYMENT_NAME%",
+      "chatModel": "%CHAT_MODEL_DEPLOYMENT_NAME%"
+    }
+  ]
+}
